@@ -1,4 +1,4 @@
-<a href="https://usedigito.vercel.app" target="_blank">
+<a href="https://digitojs.vercel.app" target="_blank">
   <img src="https://raw.githubusercontent.com/theolawalemi/digito/refs/heads/main/assets/banner.png" alt="Digito — Live Demo" width="100%" />
 </a>
 
@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <a href="https://usedigito.vercel.app"><img src="https://img.shields.io/badge/usedigito.vercel.app-0A0A0A?style=flat-square&logo=vercel&logoColor=white" alt="Live demo" /></a>
+  <a href="https://digitojs.vercel.app"><img src="https://img.shields.io/badge/digitojs.vercel.app-0A0A0A?style=flat-square&logo=vercel&logoColor=white" alt="Live demo" /></a>
   <a href="https://www.npmjs.com/package/digitojs"><img src="https://img.shields.io/npm/v/digitojs?style=flat-square&color=0A0A0A" alt="npm" /></a>
   <a href="https://bundlephobia.com/package/digitojs"><img src="https://img.shields.io/bundlephobia/minzip/digitojs?style=flat-square&color=0A0A0A&label=gzip" /></a>
   <img src="https://img.shields.io/badge/zero_dependencies-0A0A0A?style=flat-square" />
