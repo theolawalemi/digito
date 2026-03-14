@@ -63,10 +63,8 @@ The core is a **pure state machine** with no DOM or framework dependencies, wrap
 |---|---|---|---|
 | Pure headless state machine | ✅ | ✗ | ✗ |
 | Web OTP API (SMS intercept) | ✅ | ✗ | ✗ |
-| Built-in styles | ✅ | ✗ | ✗ |
 | Built-in timer + resend | ✅ | ✗ | ✗ |
 | Masked mode | ✅ | ✗ | ✗ |
-| Visual separators | ✅ | ✗ | ✗ |
 | Programmatic API (`setError`, `setSuccess`, `reset`, `focus`) | ✅ | ✗ | ✗ |
 | Haptic + sound feedback | ✅ | ✗ | ✗ |
 | `blurOnComplete` (auto-advance) | ✅ | ✗ | ✗ |
@@ -161,6 +159,8 @@ Digito injects the slot inputs, styles, countdown badge, and resend button autom
   data-type="numeric"
   data-timer="60"
   data-resend="30"
+  data-separator-after="2,4"
+  data-separator="—"
 ></div>
 
 <script type="module">
@@ -181,7 +181,7 @@ Digito injects the slot inputs, styles, countdown badge, and resend button autom
 </script>
 ```
 
-**Custom timer UI** — pass `onTick` to suppress the built-in footer and drive your own:
+**Custom timer UI** — pass `onTick` to suppress the built-in timer UI and drive your own:
 
 ```js
 const [otp] = initDigito('.digito-wrapper', {
@@ -644,7 +644,7 @@ All options are accepted by every adapter unless otherwise noted.
 | `onComplete` | `(code: string) => void` | — | Fired when all slots are filled |
 | `onExpire` | `() => void` | — | Fired when countdown reaches zero |
 | `onResend` | `() => void` | — | Fired when resend is triggered |
-| `onTick` | `(remaining: number) => void` | — | Fired every second; suppresses built-in footer (vanilla) |
+| `onTick` | `(remaining: number) => void` | — | Fired every second; suppresses built-in timer UI (vanilla) |
 | `onInvalidChar` | `(char: string, index: number) => void` | — | Fired when a typed character is rejected |
 | `onChange` | `(code: string) => void` | — | Fired on every user interaction |
 | `onFocus` | `() => void` | — | Fired when hidden input gains focus |
@@ -748,7 +748,7 @@ All adapters set boolean presence attributes on the wrapper element that mirror 
 Digito is built with accessibility as a first-class concern:
 
 - **Single ARIA-labelled input** — the hidden input carries `aria-label="Enter your N-digit code"` (or `N-character code` for non-numeric types). Screen readers announce one field, not six.
-- **All visual elements `aria-hidden`** — slot divs, separators, caret, and timer footer are hidden from the accessibility tree.
+- **All visual elements `aria-hidden`** — slot divs, separators, caret, and timer UI are hidden from the accessibility tree.
 - **`inputMode`** — set to `"numeric"` or `"text"` based on `type`, triggering the correct mobile keyboard.
 - **`autocomplete="one-time-code"`** — enables native SMS autofill on iOS and Android.
 - **Anti-interference** — `spellcheck="false"`, `autocorrect="off"`, `autocapitalize="off"` prevent browser UI from interfering.
