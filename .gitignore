@@ -19,7 +19,7 @@ playwright-report/
 .vscode/
 .idea/
 
-# AI
+# Agent
 CLAUDE.md
 AUDIT.md
 QUALITY.md
