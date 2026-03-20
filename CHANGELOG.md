@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.5] — 2026-03-20
+
+### Fixed
+
+- Peer dependencies are now correctly marked as optional. Installing digitojs no longer pulls in React, Vue, or Svelte automatically.
+- Removed source map references from published package. Only compiled output is included in the install.
+- Added issue tracker URL to package metadata, now visible on the npm page.
+
 ## [1.2.2] — 2026-03-18
 
 ### Fixed

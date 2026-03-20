@@ -1,49 +1,49 @@
 {
   "name": "digitojs",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "Reliable OTP inputs for any framework from a single core.",
+  "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.js"
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     },
     "./core": {
-      "types": "./dist/core/index.d.ts",
       "import": "./dist/core/index.js",
-      "require": "./dist/core/index.js"
+      "require": "./dist/core/index.js",
+      "types": "./dist/core/index.d.ts"
     },
     "./react": {
-      "types": "./dist/adapters/react.d.ts",
       "import": "./dist/adapters/react.js",
-      "require": "./dist/adapters/react.js"
+      "require": "./dist/adapters/react.js",
+      "types": "./dist/adapters/react.d.ts"
     },
     "./vue": {
-      "types": "./dist/adapters/vue.d.ts",
       "import": "./dist/adapters/vue.js",
-      "require": "./dist/adapters/vue.js"
+      "require": "./dist/adapters/vue.js",
+      "types": "./dist/adapters/vue.d.ts"
     },
     "./svelte": {
-      "types": "./dist/adapters/svelte.d.ts",
       "import": "./dist/adapters/svelte.js",
-      "require": "./dist/adapters/svelte.js"
+      "require": "./dist/adapters/svelte.js",
+      "types": "./dist/adapters/svelte.d.ts"
     },
     "./alpine": {
-      "types": "./dist/adapters/alpine.d.ts",
       "import": "./dist/adapters/alpine.js",
-      "require": "./dist/adapters/alpine.js"
+      "require": "./dist/adapters/alpine.js",
+      "types": "./dist/adapters/alpine.d.ts"
     },
     "./web-component": {
-      "types": "./dist/adapters/web-component.d.ts",
       "import": "./dist/adapters/web-component.js",
-      "require": "./dist/adapters/web-component.js"
+      "require": "./dist/adapters/web-component.js",
+      "types": "./dist/adapters/web-component.d.ts"
     }
   },
   "sideEffects": [
-    "./dist/adapters/vanilla.js",
     "./dist/adapters/web-component.js"
   ],
   "files": [
@@ -88,7 +88,10 @@
   "homepage": "https://digitojs.vercel.app",
   "repository": {
     "type": "git",
-    "url": "https://github.com/theolawalemi/digito"
+    "url": "git+https://github.com/theolawalemi/digito.git"
+  },
+  "bugs": {
+    "url": "https://github.com/theolawalemi/digito/issues"
   },
   "license": "MIT",
   "peerDependencies": {
@@ -96,10 +99,10 @@
     "svelte": ">=4",
     "vue": ">=3"
   },
-  "peerDependenciesOptional": {
-    "react": true,
-    "vue": true,
-    "svelte": true
+  "peerDependenciesMeta": {
+    "react": { "optional": true },
+    "vue": { "optional": true },
+    "svelte": { "optional": true }
   },
   "devDependencies": {
     "@playwright/test": "^1.58.2",
@@ -109,6 +112,5 @@
     "jest": "^30.3.0",
     "ts-jest": "^29.4.6",
     "typescript": "^5.4.0"
-  },
-  "type": "module"
+  }
 }
