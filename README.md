@@ -13,11 +13,11 @@
 </p>
 
 <p align="center">
-  <a href="https://digitojs.vercel.app"><img src="https://img.shields.io/badge/digitojs.vercel.app-0A0A0A?style=flat-square&logo=vercel&logoColor=white" alt="Live demo" /></a>
-  <a href="https://www.npmjs.com/package/digitojs"><img src="https://img.shields.io/npm/v/digitojs?style=flat-square&color=0A0A0A" alt="npm" /></a>
-  <a href="https://bundlephobia.com/package/digitojs"><img src="https://img.shields.io/bundlephobia/minzip/digitojs?style=flat-square&color=0A0A0A&label=gzip" /></a>
-  <img src="https://img.shields.io/badge/zero_dependencies-0A0A0A?style=flat-square" />
-  <img src="https://img.shields.io/badge/TypeScript-0A0A0A?style=flat-square&logo=typescript&logoColor=white" />
+  <a href="https://digitojs.vercel.app"><img src="https://img.shields.io/badge/digitojs.vercel.app-live-20C55C" alt="Live demo" /></a>&nbsp;
+  <a href="https://www.npmjs.com/package/digitojs"><img src="https://img.shields.io/npm/v/digitojs?color=20C55C&label=digitojs" alt="npm version" /></a>&nbsp;
+  <a href="https://bundlephobia.com/package/digitojs"><img src="https://img.shields.io/bundlephobia/minzip/digitojs?color=20C55C&label=gzip" alt="gzip size" /></a>&nbsp;
+  <img src="https://img.shields.io/badge/Dependencies-0-20C55C" alt="Zero dependencies" />&nbsp;
+  <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-strict-20C55C" alt="TypeScript" /></a>
 </p>
 
 ---
