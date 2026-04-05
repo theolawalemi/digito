@@ -18,8 +18,3 @@ playwright-report/
 # Editor
 .vscode/
 .idea/
-
-# Agent
-CLAUDE.md
-AUDIT.md
-QUALITY.md

@@ -1,4 +1,8 @@
-<a href="https://digitojs.vercel.app" target="_blank">
+<p align="center">
+  Digito has been succeeded by <a href="https://github.com/boastack/verino"><strong>Verino</strong></a>, an improved and actively maintained version of this project.
+</p>
+
+<a href="https://verino.vercel.app" target="_blank">
   <img src="https://raw.githubusercontent.com/walebuilds/digito/refs/heads/main/assets/banner.png" alt="Digito — Live Demo" width="100%" />
 </a>
 
@@ -7,10 +11,6 @@
 <h3 align="center">
   The only framework-agnostic OTP input state machine powering React, Vue, Svelte, Alpine, Vanilla JS, and Web Components from a single core.
 </h3>
-
-<p align="center">
-  By <a href="https://github.com/walebuilds">@Olawale Balo</a> — Product Designer + Design Engineer
-</p>
 
 ---
 
@@ -79,21 +79,21 @@ The core is a **pure state machine** with no DOM or framework dependencies, wrap
 ## Installation
 
 ```bash
-npm i digitojs
+npm i digito
 # or
-pnpm add digitojs
+pnpm add digito
 # or
-yarn add digitojs
+yarn add digito
 ```
 
 **CDN (no build step):**
 
 ```html
 <!-- Vanilla JS — window.Digito global -->
-<script src="https://unpkg.com/digitojs/dist/digito.min.js"></script>
+<script src="https://unpkg.com/digito/dist/digito.min.js"></script>
 
 <!-- Web Component — auto-registers <digito-input> -->
-<script src="https://unpkg.com/digitojs/dist/digito-wc.min.js"></script>
+<script src="https://unpkg.com/digito/dist/digito-wc.min.js"></script>
 ```
 
 ---
@@ -106,7 +106,7 @@ yarn add digitojs
 <div class="digito-wrapper" data-length="6" data-timer="60"></div>
 
 <script type="module">
-  import { initDigito } from 'digitojs'
+  import { initDigito } from 'digito'
 
   const [otp] = initDigito('.digito-wrapper', {
     onComplete: (code) => console.log('Code:', code),
@@ -125,19 +125,18 @@ Digito injects the slot inputs, styles, countdown badge, and resend button autom
 
 ### Common Patterns
 
-| Pattern | Key options |
+| Use case | Key options |
 |---|---|
-| SMS / email OTP (6-digit numeric) | `type: 'numeric'`, `timer: 60`, `onResend` |
-| 2FA / TOTP with grouping | `separatorAfter: 3` |
-| PIN entry (hidden) | `masked: true`, `blurOnComplete: true` |
-| Alphanumeric verification code | `type: 'alphanumeric'`, `pasteTransformer` |
-| Invite / referral code (grouped) | `separatorAfter: [3, 6]`, `pattern: /^[A-Z0-9]$/` |
-| Activation key (hex charset) | `pattern: /^[0-9A-F]$/`, `separatorAfter: [5, 10, 15]` |
+| SMS / email OTP | `type: 'numeric'`, `timer: 60`, `onResend` |
+| TOTP / 2FA with separator | `separatorAfter: 3` |
+| PIN entry | `masked: true`, `blurOnComplete: true` |
+| Alphanumeric code | `type: 'alphanumeric'`, `pasteTransformer` |
+| Invite / referral code | `separatorAfter: [3, 6]`, `pattern: /^[A-Z0-9]$/` |
+| Hex activation key | `pattern: /^[0-9A-F]$/` |
+| Async verification lock | `setDisabled(true / false)` around the API call |
 | Native form submission | `name: 'otp_code'` |
-| Async verification with lock | `setDisabled(true/false)` around API call |
-| Auto-advance after entry | `blurOnComplete: true` |
-| Pre-fill on mount (uncontrolled) | `defaultValue: '123456'` |
-| Display-only / read-only field | `readOnly: true` |
+| Pre-fill on mount | `defaultValue: '123456'` |
+| Display-only / read-only | `readOnly: true` |
 
 ---
 
@@ -150,12 +149,12 @@ Digito injects the slot inputs, styles, countdown badge, and resend button autom
   data-type="numeric"
   data-timer="60"
   data-resend="30"
-  data-separator-after="2,4"
+  data-separator-after="3"
   data-separator="—"
 ></div>
 
 <script type="module">
-  import { initDigito } from 'digitojs'
+  import { initDigito } from 'digito'
 
   const [otp] = initDigito('.digito-wrapper', {
     onComplete: (code) => verify(code),
@@ -188,7 +187,7 @@ const [otp] = initDigito('.digito-wrapper', {
 ### React
 
 ```tsx
-import { useOTP, HiddenOTPInput } from 'digitojs/react'
+import { useOTP, HiddenOTPInput } from 'digito/react'
 
 export function OTPInput() {
   const otp = useOTP({
@@ -235,7 +234,7 @@ const otp = useOTP({ length: 6, value: code, onChange: setCode })
 
 ```vue
 <script setup lang="ts">
-import { useOTP } from 'digitojs/vue'
+import { useOTP } from 'digito/vue'
 
 const otp = useOTP({ length: 6, onComplete: (code) => verify(code) })
 </script>
@@ -286,7 +285,7 @@ code.value = ''  // resets the field reactively
 
 ```svelte
 <script>
-  import { useOTP } from 'digitojs/svelte'
+  import { useOTP } from 'digito/svelte'
 
   const otp = useOTP({ length: 6, onComplete: (code) => verify(code) })
 </script>
@@ -319,7 +318,7 @@ code.value = ''  // resets the field reactively
 
 ```js
 import Alpine from 'alpinejs'
-import { DigitoAlpine } from 'digitojs/alpine'
+import { DigitoAlpine } from 'digito/alpine'
 
 Alpine.plugin(DigitoAlpine)
 Alpine.start()
@@ -348,7 +347,7 @@ el._digito.reset()
 ### Web Component
 
 ```js
-import 'digitojs/web-component'
+import 'digito/web-component'
 ```
 
 ```html
@@ -412,7 +411,7 @@ initDigito(target?: string | HTMLElement | HTMLElement[], options?: VanillaOptio
 ### `useOTP(options)` — React
 
 ```ts
-import { useOTP, HiddenOTPInput } from 'digitojs/react'
+import { useOTP, HiddenOTPInput } from 'digito/react'
 const otp = useOTP(options)
 ```
 
@@ -464,7 +463,7 @@ const otp = useOTP(options)
 ### `useOTP(options)` — Vue 3
 
 ```ts
-import { useOTP } from 'digitojs/vue'
+import { useOTP } from 'digito/vue'
 const otp = useOTP(options)
 ```
 
@@ -505,7 +504,7 @@ const otp = useOTP(options)
 ### `useOTP(options)` — Svelte
 
 ```ts
-import { useOTP } from 'digitojs/svelte'
+import { useOTP } from 'digito/svelte'
 const otp = useOTP(options)
 ```
 
@@ -539,7 +538,7 @@ const otp = useOTP(options)
 Pure state machine with no DOM or framework dependency.
 
 ```ts
-import { createDigito } from 'digitojs'
+import { createDigito } from 'digito'
 
 const otp = createDigito({ length: 6, type: 'numeric' })
 
@@ -575,7 +574,7 @@ unsub()
 ### `createTimer(options)` — Standalone
 
 ```ts
-import { createTimer } from 'digitojs'
+import { createTimer } from 'digito'
 
 const timer = createTimer({
   totalSeconds: 60,
@@ -596,7 +595,7 @@ If `totalSeconds <= 0`, `onExpire` fires immediately on `start()`. The `start()`
 ### `filterChar` / `filterString` — Utilities
 
 ```ts
-import { filterChar, filterString } from 'digitojs'
+import { filterChar, filterString } from 'digito'
 
 filterChar('A', 'numeric')          // → '' (rejected)
 filterChar('5', 'numeric')          // → '5'
@@ -613,7 +612,7 @@ filterString('84AB91', 'numeric')   // → '8491'
 Formats a second count as a `m:ss` string. Used internally by the built-in timer UI; exported for custom timer displays.
 
 ```ts
-import { formatCountdown } from 'digitojs/core'
+import { formatCountdown } from 'digito/core'
 
 formatCountdown(65)   // → "1:05"
 formatCountdown(30)   // → "0:30"
@@ -750,20 +749,6 @@ Digito is built with accessibility as a first-class concern:
 
 ---
 
-## Keyboard Navigation
-
-| Key | Action |
-|---|---|
-| `0–9` / `a–z` / `A–Z` | Fill current slot and advance focus |
-| `Backspace` | Clear current slot; step back if already empty |
-| `Delete` | Clear current slot; focus stays in place |
-| `←` | Move focus one slot left |
-| `→` | Move focus one slot right |
-| `Cmd/Ctrl+V` | Smart paste from cursor slot, wrapping if needed |
-| `Tab` | Standard browser tab order |
-
----
-
 ## Browser & Environment Support
 
 **Browsers:**
@@ -794,24 +779,24 @@ Digito is built with accessibility as a first-class concern:
 ## Package Exports
 
 ```
-digitojs                → Vanilla JS adapter + core utilities
-digitojs/core           → createDigito, createTimer, formatCountdown, filterChar, filterString (no DOM)
-digitojs/react          → useOTP hook + HiddenOTPInput + SlotRenderProps
-digitojs/vue            → useOTP composable
-digitojs/svelte         → useOTP store + action
-digitojs/alpine         → DigitoAlpine plugin
-digitojs/web-component  → <digito-input> custom element
+digito                → Vanilla JS adapter + core utilities
+digito/core           → createDigito, createTimer, formatCountdown, filterChar, filterString (no DOM)
+digito/react          → useOTP hook + HiddenOTPInput + SlotRenderProps
+digito/vue            → useOTP composable
+digito/svelte         → useOTP store + action
+digito/alpine         → DigitoAlpine plugin
+digito/web-component  → <digito-input> custom element
 ```
 
 All exports are fully typed. Core utilities are also available from the main entry:
 
 ```ts
-import { createDigito, createTimer, filterChar, filterString } from 'digitojs'
-import { formatCountdown } from 'digitojs/core'
+import { createDigito, createTimer, filterChar, filterString } from 'digito'
+import { formatCountdown } from 'digito/core'
 ```
 
 ---
 
 ## License
 
-MIT © [Olawale Balo](https://github.com/walebuilds)
+MIT © 2026 [Olawale Balo](https://github.com/walebuilds)

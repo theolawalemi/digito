@@ -9,10 +9,10 @@
  * Both are minified, target ES2017 (async/await transpiled), and include an
  * external source map for debugging. Import via CDN:
  *
- *   <script src="https://unpkg.com/digitojs/dist/digito.min.js"></script>
+ *   <script src="https://unpkg.com/digito/dist/digito.min.js"></script>
  *   <!-- const { initDigito, createDigito, filterChar, filterString } = window.Digito -->
  *
- *   <script src="https://unpkg.com/digitojs/dist/digito-wc.min.js"></script>
+ *   <script src="https://unpkg.com/digito/dist/digito-wc.min.js"></script>
  *   <!-- <digito-input length="6"></digito-input> -->
  *
  * Usage:
@@ -31,7 +31,7 @@ const shared = {
   format:    'iife',
   logLevel:  'info',
   banner: {
-    js: '/*! Digito v1.2.5 | Olawale Balo — Product Designer + Design Engineer */',
+    js: '/*! Digito | MIT License | https://github.com/boastack/verino */',
   },
 }
 

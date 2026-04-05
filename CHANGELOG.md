@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 
-- Peer dependencies are now correctly marked as optional. Installing digitojs no longer pulls in React, Vue, or Svelte automatically.
+- Peer dependencies are now correctly marked as optional. Installing digito no longer pulls in React, Vue, or Svelte automatically.
 - Removed source map references from published package. Only compiled output is included in the install.
 - Added issue tracker URL to package metadata, now visible on the npm page.
 
@@ -31,7 +31,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
-- Live demo URL updated to `https://digitojs.vercel.app` in README
+- Live demo URL updated to `https://digito.vercel.app` in README
 
 ## [1.0.0] — 2026-03-14
 
